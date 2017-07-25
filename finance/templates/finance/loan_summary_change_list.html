@@ -1,0 +1,61 @@
+{% extends "finance/change_list.html" %}
+
+{% block content_title %}
+    <h1> Credit Summary </h1>
+
+{% endblock %}
+
+{% block result_list %}
+
+    <div class="results">
+
+    <table>
+    <thead>
+        <tr>
+            <th>
+                <div class="text">
+                    <a href="#">Name</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Amount Borrowed</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Amount Paid</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Percentage Paid</a>
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for row in summary %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+        <td>{{ row.user }}</td>
+        <td>{{ row.credit }}</td>
+        <td>{{ row.debit }}</td>
+        <td>{{ row.reduction }}%</td>
+
+        <!--<td>{{ row.username }}</td>
+        <td>{{ row.total_credit }}</td>
+        <td>{{ row.paid }}</td>
+        <td>{{ row.total_credit | default:0 }}</td>-->
+    </tr>
+    {% endfor %}
+    </tbody>
+
+    </table>
+    </div>
+
+{% endblock %}
+
+{% block pagination %}
+
+{% endblock %}

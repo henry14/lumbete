@@ -1,0 +1,56 @@
+{% extends "finance/change_list.html" %}
+
+{% block content_title %}
+    <h1> Credit Summary </h1>
+
+{% endblock %}
+
+{% block result_list %}
+
+    <div class="results">
+
+    <table>
+    <thead>
+        <tr>
+            <th>
+                <div class="text">
+                    <a href="#">Full name</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Amount Deposited</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Total Deposit</a>
+                </div>
+            </th>
+            <th>
+                <div class="text">
+                    <a href="#">Interest</a>
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for row in summary %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+        <td>{{ row.username }}</td>
+        <td>{{ row.total_credit }}</td>
+        <td>{{ row.paid }}</td>
+        <td>{{ row.total_credit | default:0 }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+    </table>
+    </div>
+
+{% endblock %}
+
+{% block pagination %}
+
+{% endblock %}

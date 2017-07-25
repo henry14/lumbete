@@ -1,0 +1,6 @@
+{% extends "admin/finance/change_list.html" %}
+
+{% block object-tools-items %}
+  {% include "admin/finance/change_list_export_item.html" %}
+  {{ block.super }}
+{% endblock %}
